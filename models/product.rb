@@ -44,5 +44,10 @@ class Product
       self.all.select { |product| product.location == location }
   end
 
+  # returns a Product with a particular id
+  def self.find(id)
+    self.all.select { |product| product.id == id.to_i }.first
+  end
+
 end
 
