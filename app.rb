@@ -107,7 +107,7 @@ get '/products' do
         <a href='/products' class='nav'>Products</a>
       </div>
 
-      <% DATA = HTTParty.get('https://fomotograph-api.udacity.com/products.json')['data'] %>
+      <% DATA = HTTParty.get('https://fomotograph-api.udacity.com/products.json')['photos'] %>
 
       <div id='main'>
         <h1> All Products </h1>
@@ -163,7 +163,7 @@ get '/products/location/:location' do
 
       <div id='main'>
 
-        <% DATA = HTTParty.get('https://fomotograph-api.udacity.com/products.json')['data'] %>
+        <% DATA = HTTParty.get('https://fomotograph-api.udacity.com/products.json')['photos'] %>
 
         <h1> <%= params[:location] != 'us' ? params[:location].capitalize : params[:location].upcase %> </h1>
         <div id='wrapper'>
@@ -202,7 +202,7 @@ get '/products/:id' do
   erb "<!DOCTYPE html>
   <html>
   <head>
-    <% DATA = HTTParty.get('https://fomotograph-api.udacity.com/products.json')['data'] %>
+    <% DATA = HTTParty.get('https://fomotograph-api.udacity.com/products.json')['photos'] %>
     <% product = DATA.select { |prod| prod['id'] == params[:id].to_i }.first %>
     <title>Fomotograph | <%= product['title'] %> </title>
     <link rel='stylesheet' type='text/css' href='<%= url('/style.css') %>'>
