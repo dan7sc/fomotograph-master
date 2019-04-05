@@ -49,5 +49,10 @@ class Product
     self.all.select { |product| product.id == id.to_i }.first
   end
 
+  # returns Product under $10
+  def self.under(limit)
+    self.all.select { |product| product.price < limit }
+  end
+
 end
 
