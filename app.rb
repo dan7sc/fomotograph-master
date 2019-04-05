@@ -1,5 +1,6 @@
 require 'sinatra'
 require_relative 'models/product.rb'
+require_relative 'helpers/titlecase.rb'
 
 get '/' do
   # HOME LANDING PAGE SHOWING BANNER PHOTO, TITLE, AND SUBTITLE
